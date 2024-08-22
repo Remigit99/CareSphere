@@ -26,8 +26,8 @@ export default function RootLayout() {
 
   return (
       <Stack>
-        <Stack.Screen name="/(root)/home" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found"  options={{ headerShown: false }} />
       </Stack>
   );
 }

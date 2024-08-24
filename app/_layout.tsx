@@ -11,7 +11,12 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
 
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    QuicksandRegular: require('../assets/fonts/Quicksand-Regular.ttf'),
+    QuicksandSemiBold: require('../assets/fonts/Quicksand-SemiBold.ttf'),
+    QuicksandMedium: require('../assets/fonts/Quicksand-Medium.ttf'),
+    QuicksandLight: require('../assets/fonts/Quicksand-Light.ttf'),
+    QuicksandBold: require('../assets/fonts/Quicksand-Bold.ttf'),
+    // Quicksand: require('../assets/fonts/Quicksand-Regular.ttf'),
   });
 
   useEffect(() => {

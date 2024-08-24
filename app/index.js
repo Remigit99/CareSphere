@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import React, { useState, useRef } from "react";
 import { Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -16,7 +16,7 @@ import {
 const Home = () => {
   const [search, setSearch] = useState("");
   const swiperRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <SafeAreaView>
@@ -42,26 +42,16 @@ const Home = () => {
 
         <View>
           <Swiper
-          style={styles.swiperWrapper}
-            loop={false}
+            style={styles.swiperWrapper}
+            loop={true}
             ref={swiperRef}
             onIndexChanged={(index) => setActiveIndex(index)}
             autoplay={true}
-            dot={
-              <View
-                style={styles.dots}
-              />
-            }
-            activeDot={
-              <View
-                style={styles.activeDots}
-
-                
-              />
-            }
+            dot={<View style={styles.dots} />}
+            activeDot={<View style={styles.activeDots} />}
           >
             {featuresData.map((item, index) => (
-              <View key={index}  style={styles.swiperItem}>
+              <View key={index} style={styles.swiperItem}>
                 <Text>{item.title}</Text>
               </View>
             ))}
@@ -69,12 +59,11 @@ const Home = () => {
         </View>
 
         <View>
-          <Text>
-            loremThe following packages should be updated for best compatibility
-            with the installed expo version: jest-expo@51.0.3 - expected
-            version: ~51.0.4 Your project may not work correctly until you
-            install the expected versions of the packages.
-          </Text>
+          <FlatList
+          data={featuresData}
+          renderItem={(item) => <View><Text>{item.title}</Text></View>}
+          keyExtractor={item => item.id}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -151,15 +140,12 @@ const styles = StyleSheet.create({
     // fontFamily: "inh"
   },
 
-  swiperWrapper:{
-  backgroundColor: "white",
-  height: 150
+  swiperWrapper: {
+    backgroundColor: "white",
+    height: 150,
   },
-  swiperItem:{
-
-  }
-  ,
-  dots:{
+  swiperItem: {},
+  dots: {
     backgroundColor: "blue",
     width: 10,
     height: 10,
@@ -168,9 +154,8 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: 3,
     marginBottom: 3,
-  }
-  ,
-  activeDots:{
+  },
+  activeDots: {
     backgroundColor: "red",
     width: 10,
     height: 10,
@@ -179,5 +164,5 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: 3,
     marginBottom: 3,
-  }
+  },
 });

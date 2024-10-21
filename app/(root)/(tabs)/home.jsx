@@ -6,10 +6,7 @@ import { categoriesData } from "../../../constants/mockData/categories";
 
 
 import profileImg from "@/assets/images/my_profile_img.png";
-import {
-  TextInput,
-  TouchableWithoutFeedback,
-} from "react-native-gesture-handler";
+
 
 const Home = () => {
  
@@ -42,6 +39,7 @@ const Home = () => {
           data={categoriesData}
           renderItem={(item) => <View><Text>{item.title}</Text></View>}
           keyExtractor={item => item.id}
+          style={styles.flatlist}
           />
         </View>
       </View>
@@ -53,8 +51,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: "#b6c5d1",
-    backgroundColor: "#b6c5d1",
+    // backgroundColor: "#b6c5d1",
   },
   profileHeaderContainer: {
     backgroundColor: "#1B3D6E",
@@ -65,6 +62,7 @@ const styles = StyleSheet.create({
     gap: 16,
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
+    // display: "none"
   },
 
   welcome: {
@@ -82,26 +80,6 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // primaryColor: #0A690E
-    // secondary: #5c9a56 j
-    // text: #00000
-    // subtextcolor:# 727272
-
-    //New Colors
-    // primaryColor: #1B3D6E  -> INDIGO DYE
-    // primaryColor2: #0dbad2  -> Pacific Blue
-
-    // secondaryColor: #f6b32f  -> honey yellow
-    // secondaryColor2: #a2cf5f  ->  yellow green
-
-    // neutral
-    // text: #444444  -> onyx
-    // text: #737373  -> sonic silver
-    // text: #111111  -> rich black fogra 39
-    // text: #ffffff  -> white
-    // text: #1b3d6e  -> indigo dye -60%
-    // text: #b6c5d1  -> beau blue
-    //
   },
 
   image1: {
@@ -116,7 +94,11 @@ const styles = StyleSheet.create({
     marginVertical: 16,
     padding: 16,
     borderRadius: 32,
-    // fontFamily: "inh"
+    fontFamily: "QuicksandMedium"
   },
+
+  flatlist:{
+    backgroundColor: "red"
+  }
 
 });

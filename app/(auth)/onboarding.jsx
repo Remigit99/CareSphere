@@ -29,7 +29,7 @@ const isLastSlide = activeIndex === featuresData.length - 1
           loop={true}
           ref={swiperRef}
           onIndexChanged={(index) => setActiveIndex(index)}
-          autoplay={false}
+          autoplay={true}
           dot={<View style={styles.dots} />}
           activeDot={<View style={styles.activeDots} />}
         >
@@ -48,7 +48,11 @@ const isLastSlide = activeIndex === featuresData.length - 1
           ))}
         </Swiper>
       </View>
-      <CustomButton title={isLastSlide ? "Get Started":"Next"} onPress={isLastSlide ? router.replace("/(auth)/sign-up"): swiperRef.current?.scrollBy(1) } />
+      <CustomButton 
+      title={isLastSlide ? "Get Started":"Next"} 
+      // onPress={isLastSlide ? router.replace("/(auth)/sign-up"): swiperRef.current?.scrollBy(1) } 
+      onPress={() => isLastSlide && router.replace("/(auth)/sign-up") } 
+      />
     </SafeAreaView>
   );
 };
